@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/870f6220a2.js" crossorigin="anonymous"></script> 
+    <link rel="stylesheet" href="style.css">
+    <title>To Do List</title>
+</head>
+<body>
+    <div id="container">
+        <form action="/addTask" method="post">
+            <input id="inputToDo" type="text" placeholder="Add New Todo" name="task">
+            <button id="addItem" type="submit">Add Task</button>
+        </form>
+        
+        <ul id="ulForItems">
+
+            <% for(var i=0; i<tasks.length; i++) {%>
+                <% let lineThrough = tasks[i].completed ? 'line-through' : 'none' %>
+                <li >
+                  <span style='text-decoration: <%= lineThrough %> '><%= tasks[i].task %></span>
+                  <span class="complete"><i class="fa-solid fa-check"></i></span>
+                </li>
+              <% } %>
+        </ul>
+        <button class="delete">Clear</button>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
